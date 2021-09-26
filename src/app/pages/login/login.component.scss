@@ -1,0 +1,25 @@
+@import '../../../styles.scss';
+
+.page {
+  height: 100%;
+  width: 100%;
+  position: relative;
+
+  .grid-login {
+    height: 100%;
+    display: grid;
+
+    @media screen and (max-width: 991px) {
+      grid-template-rows: 1fr 1fr;
+    }
+
+    @media screen and (min-width: 992px) {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .carrossel{
+      background: $backgroundCarrossel;
+  }
+
+}
