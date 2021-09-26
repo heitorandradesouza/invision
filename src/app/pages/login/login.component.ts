@@ -7,8 +7,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
   carrosselItems: any[] = [];
-  selectedItem = 0;
-  isPaused = false;
   constructor() { }
 
   ngOnInit() {
@@ -34,10 +32,6 @@ export class LoginComponent implements OnInit {
         description: 'Integer congue est non velit aliquet varius. Praesent ex dolor, bibendum quis lorem at, vehicula pretium leo.'
       }
     ]
-  }
-
-  selectItem(item: any) {
-    this.selectedItem = item;
   }
 
 }

@@ -22,57 +22,6 @@
     background: $backgroundCarrossel;
     color: $white;
     padding: 100px 0;
-
-    .grid-carrossel {
-      display: grid;
-
-      .carrossel-description {
-        p {
-          max-width: 480px;
-          padding: 0 30px;
-        }
-      }
-
-      .carrossel-image {
-        padding: 2rem 6rem 0 6rem;
-
-        img {
-          object-fit: contain;
-          width: 100%;
-        }
-      }
-
-      .carrossel-control {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: row;
-
-        .control {
-          width: 11px;
-          height: 11px;
-          background: #ffffff;
-          border-radius: 50px;
-          position: relative;
-          display: block;
-          margin: 6px;
-          cursor: pointer;
-          opacity: 0.5;
-          transition: all .3s;
-          transition-delay: .1s;
-        }
-
-        .selected {
-          width: 26px;
-          height: 11px;
-          opacity: 1;
-          transition: all .3s;
-          transition-delay: .1s;
-        }
-
-      }
-
-    }
   }
 
 }

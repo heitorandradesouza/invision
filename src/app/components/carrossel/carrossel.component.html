@@ -1,0 +1,16 @@
+<div class="grid-carrossel">
+  <div class="center carrossel-image">
+    <img [src]="'/assets/'+carrosselItems[selectedItem].image">
+  </div>
+  <div class="carrossel-description center">
+    <h1>{{carrosselItems[selectedItem].title}}</h1>
+    <p class="center">
+      {{carrosselItems[selectedItem].description}}
+    </p>
+  </div>
+  <div class="carrossel-control center">
+    <div *ngFor="let control of carrosselItems; index as i ">
+      <span (click)="selectItem(i)" class="control" [ngClass]="{'selected': selectedItem == i}"></span>
+    </div>
+  </div>
+</div>
