@@ -15,7 +15,7 @@
 
     img {
       object-fit: contain;
-      width: 100%;
+      width: 90%;
     }
   }
 
@@ -28,7 +28,7 @@
     .control {
       width: 11px;
       height: 11px;
-      background: #ffffff;
+      background: $white;
       border-radius: 50px;
       position: relative;
       display: block;
