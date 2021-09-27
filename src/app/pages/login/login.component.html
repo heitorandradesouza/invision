@@ -7,27 +7,60 @@
       <div class="invision">
         <h1>Invision</h1>
       </div>
-      <div class="welcome center">
-        <h1>Welcome to Invision</h1>
-      </div>
-      <form class="center">
-        <mat-form-field class="input" appearance="legacy">
-          <mat-label>Users name or Email</mat-label>
-          <input matInput placeholder="example@mail.com">
-        </mat-form-field>
-        <mat-form-field class="input" appearance="legacy">
-          <mat-label>Password</mat-label>
-          <input matInput type="password">
-        </mat-form-field>
-      </form>
-      <div class="forgot-password center">
-        <h4>
-          Forgot Password?
-        </h4>
-      </div>
+
+      <ng-container *ngIf="pageMode === 'login'">
+        <div class="welcome center">
+          <h1>Welcome to Invision</h1>
+        </div>
+        <form class="center">
+          <mat-form-field class="input" appearance="legacy">
+            <mat-label>Users name or Email</mat-label>
+            <input matInput placeholder="example@mail.com" autocomplete="off" [formControl]="email" required>
+            <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+          </mat-form-field>
+          <mat-form-field class="input" appearance="legacy">
+            <mat-label>Password</mat-label>
+            <input matInput type="password" autocomplete="off" [formControl]="password" required>
+            <mat-error *ngIf="password.invalid">{{getErrorMessage()}}</mat-error>
+          </mat-form-field>
+        </form>
+        <div class="forgot-password center">
+          <h4>
+            Forgot Password?
+          </h4>
+        </div>
+      </ng-container>
+
+      <ng-container *ngIf="pageMode === 'newAccount'">
+        <div class="welcome center">
+          <h1>Getting Started</h1>
+        </div>
+        <form class="center">
+
+          <mat-form-field class="input" appearance="legacy">
+            <mat-label>Full Name</mat-label>
+            <input matInput [formControl]="name" autocomplete="off" required>
+            <mat-error *ngIf="name.invalid">{{getErrorMessage()}}</mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="input" appearance="legacy">
+            <mat-label>Users name or Email</mat-label>
+            <input matInput placeholder="example@mail.com" autocomplete="off" [formControl]="email" required>
+            <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="input" appearance="legacy">
+            <mat-label>Create Password</mat-label>
+            <input matInput type="password" autocomplete="off" [formControl]="password" required>
+            <mat-error *ngIf="password.invalid">{{getErrorMessage()}}</mat-error>
+          </mat-form-field>
+
+        </form>
+      </ng-container>
+
       <div class="buttons center">
         <div class="sign-in center">
-          Sign In
+          Sign {{pageMode === 'login'? 'in' : 'up'}}
         </div>
         <div class="or">Or</div>
         <div class="sign-in-google center">
@@ -36,8 +69,12 @@
             Sign in with Google
           </div>
         </div>
-        <div class="new-account">
-          <h4>New <b>Invision</b>? <a class="link">Create Account</a></h4>
+        <div class="new-account" *ngIf="pageMode === 'login'">
+          <h4>New <b>Invision</b>? <a class="link" (click)="changeView('newAccount')">Create Account</a></h4>
+        </div>
+
+        <div class="new-account" *ngIf="pageMode === 'newAccount'">
+          <h4>Already on <b>Invision</b>? <a class="link" (click)="changeView('login')">Log in</a></h4>
         </div>
       </div>
     </div>
