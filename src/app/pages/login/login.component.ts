@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -7,6 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
   carrosselItems: any[] = [];
+  email = new FormControl('', [Validators.required, Validators.email]);
+  password = new FormControl('', [Validators.required]);
+  name = new FormControl('', [Validators.required]);
+  pageMode = 'newAccount';
+
   constructor() { }
 
   ngOnInit() {
@@ -19,19 +25,37 @@ export class LoginComponent implements OnInit {
       {
         image: 'corporative2.gif',
         title: 'Sed sed felis lorem',
-        description: 'Sed sed felis lorem. Fusce eu mattis mauris. Maecenas lectus lectus, sodales ac sapien vel, ultricies condimentum ipsum.'
+        description: 'Sed sed felis lorem. Fusce eu mattis mauris. Maecenas lectus lectus sodales.'
       },
       {
         image: 'corporative3.gif',
         title: 'Quisque nibh tortor',
-        description: 'Ut a lacus maximus, pulvinar diam quis, feugiat felis. Sed nec quam elementum, vestibulum eros id, dapibus enim.'
+        description: 'Ut a lacus maximus, pulvinar diam quis, feugiat felis. Sed nec quam elementum.'
       },
       {
         image: 'corporative4.gif',
         title: 'Eros justo tincidunt leo',
-        description: 'Integer congue est non velit aliquet varius. Praesent ex dolor, bibendum quis lorem at, vehicula pretium leo.'
+        description: 'Integer congue est non velit aliquet varius. Praesent ex dolor bibendum quis.'
       }
     ]
+  }
+
+  changeView(view: string) {
+    this.pageMode = view;
+  }
+
+  getErrorMessage() {
+    if (this.email.hasError('required')) {
+      return 'Este campo não pode estar vazio';
+    } else if (this.password.hasError('required')) {
+      return 'Este campo não pode estar vazio';
+    } else if (this.email.hasError('email')) {
+      return 'O e-mail está incorreto'
+    } else if (this.name.hasError('required')) {
+      return 'Este campo não pode estar vazio'
+    } else {
+      return
+    }
   }
 
 }

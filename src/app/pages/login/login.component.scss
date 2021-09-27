@@ -21,7 +21,10 @@
   .carrossel {
     background: $green;
     color: $white;
-    padding: 100px 0;
+
+    @media screen and (max-width: 991px) {
+      padding: 25% 0;
+    }
   }
 
   .login-form {
@@ -45,6 +48,7 @@
     .input {
       width: 100%;
       max-width: 433px;
+      margin-bottom: 10px;
 
     }
 

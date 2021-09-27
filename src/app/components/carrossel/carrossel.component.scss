@@ -11,11 +11,14 @@
   }
 
   .carrossel-image {
-    padding: 2rem 6rem 0 6rem;
-
     img {
       object-fit: contain;
       width: 90%;
+
+      @media screen and (max-width: 991px) {
+        height: 30vh;
+      }
+
     }
   }
 
